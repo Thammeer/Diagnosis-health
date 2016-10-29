@@ -24,8 +24,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name"
-        android:id="@+id/textView10"
-        android:layout_marginTop="30dp" />
+        android:id="@+id/textView10" />
 
     <EditText
         android:layout_width="match_parent"
@@ -129,12 +128,12 @@
     </RadioGroup>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/register2"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:onClick="register" />
 
     </LinearLayout>

@@ -80,7 +80,6 @@ public class Register extends AppCompatActivity {
                 @Override
                 public void onResponse(Response<Results> response, Retrofit retrofit) {
 
-                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
 
                     if (response.body().getMessage().equals("1")) {
 
@@ -93,7 +92,7 @@ public class Register extends AppCompatActivity {
                     } else if(response.body().getMessage().equals("0")){
 
                         Toast.makeText(getApplicationContext(), "connection error", Toast.LENGTH_LONG).show();
-                        
+
                     }else{
 
                         Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();

@@ -56,7 +56,6 @@ email=(EditText)findViewById(R.id.email);
                 @Override
                 public void onResponse(Response<Results> response, Retrofit retrofit) {
 
-                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
 
                     if (response.body().getMessage().equals("0")) {
 
@@ -67,6 +66,7 @@ email=(EditText)findViewById(R.id.email);
                         SharedPreferences sharedPreferencesed=getApplicationContext().getSharedPreferences("id", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor=sharedPreferencesed.edit();
                         editor.putString("id",response.body().getMessage());
+                        editor.putString("name",response.body().getname());
                         editor.commit();
                         Intent intent = new Intent(Login.this,Home.class);
                         startActivity(intent);
@@ -93,8 +93,9 @@ email=(EditText)findViewById(R.id.email);
     public interface Registration {
         @FormUrlEncoded
         @POST("login.php")
-        Call<Results> postRegestraion(@Field("pass") String pass2,
-                                      @Field("email") String email2
+        Call<Results> postRegestraion(@Field("email") String email2,
+                                      @Field("pass") String pass2
+
 
         );
     }

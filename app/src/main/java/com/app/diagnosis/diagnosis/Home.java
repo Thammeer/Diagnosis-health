@@ -9,22 +9,24 @@ import android.view.View;
 import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
-
+    String id,name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         SharedPreferences sharedPreferencesed=getApplicationContext().getSharedPreferences("id", Context.MODE_PRIVATE);
+         id =sharedPreferencesed.getString("id", "");
+        name=sharedPreferencesed.getString("name", "");
 
-        String token =sharedPreferencesed.getString("id", "");
+        Toast.makeText(getApplicationContext(), id+" - "+name, Toast.LENGTH_LONG).show();
 
-        Toast.makeText(Home.this, token, Toast.LENGTH_SHORT).show();
 
     }
 
     public void diagnosis(View view) {
         Intent intent = new Intent(this,diagnosis.class);
+        intent.putExtra("id",id);
         startActivity(intent);
     }
 
@@ -51,5 +53,11 @@ public class Home extends AppCompatActivity {
     public void alert(View view) {
         Intent intent = new Intent(this,alert.class);
         startActivity(intent);
+    }
+
+    public void map(View view) {
+
+
+
     }
 }

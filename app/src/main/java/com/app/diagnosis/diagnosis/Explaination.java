@@ -19,5 +19,8 @@ public class Explaination extends AppCompatActivity {
 
     public void submit(View view) {
 
+
+
+
     }
 }
