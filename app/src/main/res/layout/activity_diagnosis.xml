@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
 
     tools:context="com.app.diagnosis.diagnosis.diagnosis"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
 
 
@@ -21,60 +22,149 @@
             android:layout_height="match_parent">
 
 
-            <TextView
-                android:layout_width="wrap_content"
+            <CheckBox
+                android:text="Do you suffer from pain in the head? "
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Question 1"
-                android:id="@+id/textView12"
-                android:layout_gravity="left" />
+                android:id="@+id/checkBox1"
+                android:textColor="@android:color/white" />
 
-            <RadioGroup
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
+            <CheckBox
+                android:text="Do you suffer from migraine in some parts of the head? "
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox2" />
+
+            <CheckBox
+                android:text="Do you suffer from a nominated in the nose?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox3" />
+
+            <CheckBox
+                android:text="Do you suffer from coughing with sputum? "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox4" />
+
+            <CheckBox
+                android:text="Do you suffer from dry coughing ?"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox5" />
+
+            <CheckBox
+                android:text="Do you suffer from clogging nose?"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox6" />
+
+            <CheckBox
+                android:text="Do you suffer from difficulty in defecation? "
+                android:layout_width="match_parent"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox7" />
+
+            <CheckBox
+                android:text="Do you suffer from high body temperature?"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox8" />
+
+            <CheckBox
+                android:text="Do you suffer from fatigue in the body?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox9" />
+
+            <CheckBox
+                android:text="Do you suffer from nausea?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox10" />
+
+            <CheckBox
+                android:text="Do you suffer from vomiting?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox11" />
 
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:id="@+id/r11"
-                    android:singleLine="false"
-                     />
+            <CheckBox
+                android:text="Do you suffer from constipation?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox12" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:id="@+id/r12"
-                    android:singleLine="false"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3"
-                    android:id="@+id/r13"
-                    android:singleLine="false"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4"
-                    android:id="@+id/r14"
-                    android:singleLine="false"
-                    />
+            <CheckBox
+                android:text="Do you feel no desire to eat with a heat or heartburn? "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox13" />
+            <CheckBox
+                android:text="Do you suffer from sneezing so much?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox14" />
+            <CheckBox
+                android:text="Do you suffer from a simple muscle fatigue? "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox15" />
 
-            </RadioGroup>
+            <CheckBox
+                android:text="Do you suffer from slight shortness of breath?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox16" />
+
+            <CheckBox
+                android:text="Do you feel as acidity or heartburn?"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox17" />
+            <CheckBox
+                android:text="Do not you feel the desire to eat and nausea?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:id="@+id/checkBox18" />
+            <CheckBox
+                android:text="Do you suffer from pain and abdominal cramps?"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox19" />
+
+
+
+
+
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="New Button"
+                android:text="Display"
                 android:id="@+id/button6"
                 android:layout_gravity="center_horizontal"
-                android:onClick="send" />
+                android:onClick="send"
+                android:background="@drawable/selectable_background" />
 
 
         </LinearLayout>

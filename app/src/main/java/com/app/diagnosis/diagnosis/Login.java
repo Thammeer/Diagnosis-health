@@ -1,5 +1,6 @@
 package com.app.diagnosis.diagnosis;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,7 @@ import retrofit.http.POST;
 
 public class Login extends AppCompatActivity {
 EditText email,pass;
+    ProgressDialog PD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +30,14 @@ EditText email,pass;
 email=(EditText)findViewById(R.id.email);
         pass=(EditText)findViewById(R.id.pass);
 
+        PD = new ProgressDialog(this);
+        PD.setMessage("Loading.....");
+        PD.setCancelable(false);
 
 
     }
 
-    Retrofit registration = new Retrofit.Builder().
+    Retrofit login = new Retrofit.Builder().
             baseUrl("http://diag.esy.es/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
@@ -44,11 +49,12 @@ email=(EditText)findViewById(R.id.email);
             Toast.makeText(this,"Please enter your password",Toast.LENGTH_SHORT).show();
         }else
         {
+            PD.show();
             String email2 = email.getText().toString();
             String pass2 = pass.getText().toString();
 
-            Registration apiService = registration.create(Registration.class);
-            Call<Results> reg = apiService.postRegestraion(email2,pass2);
+            Login_ apiService = login.create(Login_.class);
+            Call<Results> reg = apiService.postLogin(email2,pass2);
 
 
             reg.enqueue(new Callback<Results>() {
@@ -60,16 +66,26 @@ email=(EditText)findViewById(R.id.email);
                     if (response.body().getMessage().equals("0")) {
 
                         Toast.makeText(getApplicationContext(), "Try Again", Toast.LENGTH_LONG).show();
+                        PD.dismiss();
 
                     } else{
+
+                        PD.dismiss();
 
                         SharedPreferences sharedPreferencesed=getApplicationContext().getSharedPreferences("id", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor=sharedPreferencesed.edit();
                         editor.putString("id",response.body().getMessage());
                         editor.putString("name",response.body().getname());
                         editor.commit();
-                        Intent intent = new Intent(Login.this,Home.class);
-                        startActivity(intent);
+
+                        if(response.body().getname().equals("Dr.Ayman Al-harbi")||response.body().getname().equals("Dr.Yasser Khoujah")||response.body().getname().equals("Dr.Mohammed Al-harthi")){
+                            Intent intent = new Intent(Login.this,Dr_Home.class);
+                            startActivity(intent);
+                        }else {
+                            Intent intent = new Intent(Login.this,Home.class);
+                            startActivity(intent);
+                        }
+
 
                     }
 
@@ -78,6 +94,7 @@ email=(EditText)findViewById(R.id.email);
 
                 @Override
                 public void onFailure(Throwable t) {
+                    PD.dismiss();
 
 
                 }
@@ -90,10 +107,10 @@ email=(EditText)findViewById(R.id.email);
 
     }
 
-    public interface Registration {
+    public interface Login_ {
         @FormUrlEncoded
         @POST("login.php")
-        Call<Results> postRegestraion(@Field("email") String email2,
+        Call<Results> postLogin(@Field("email") String email2,
                                       @Field("pass") String pass2
 
 

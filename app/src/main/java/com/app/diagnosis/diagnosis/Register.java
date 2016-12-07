@@ -1,5 +1,6 @@
 package com.app.diagnosis.diagnosis;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,7 @@ public class Register extends AppCompatActivity {
     EditText email, pass, mobile, age, name;
     RadioGroup radioGroup;
     RadioButton radioButton;
-
+    ProgressDialog PD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,9 @@ public class Register extends AppCompatActivity {
         name = (EditText) findViewById(R.id.name);
         radioGroup = (RadioGroup) findViewById(R.id.radio);
 
+        PD = new ProgressDialog(this);
+        PD.setMessage("Loading.....");
+        PD.setCancelable(false);
 
     }
 
@@ -62,8 +66,7 @@ public class Register extends AppCompatActivity {
         } else if (age2.equals("")) {
             Toast.makeText(this, "Please enter your age", Toast.LENGTH_SHORT).show();
         } else {
-
-
+            PD.show();
 
             int selectedId = radioGroup.getCheckedRadioButtonId();
             radioButton = (RadioButton) findViewById(selectedId);
@@ -74,7 +77,6 @@ public class Register extends AppCompatActivity {
             Registration apiService = registration.create(Registration.class);
             Call<Results> reg = apiService.postRegestraion(name2,email2,pass2,age2,mobile2,gender2);
 
-
             reg.enqueue(new Callback<Results>() {
 
                 @Override
@@ -84,6 +86,7 @@ public class Register extends AppCompatActivity {
                     if (response.body().getMessage().equals("1")) {
 
                         Toast.makeText(getApplicationContext(), "Your information inserted successfully.", Toast.LENGTH_LONG).show();
+                        PD.dismiss();
 
                         finish();
 
@@ -91,11 +94,13 @@ public class Register extends AppCompatActivity {
 
                     } else if(response.body().getMessage().equals("0")){
 
-                        Toast.makeText(getApplicationContext(), "connection error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Try Again", Toast.LENGTH_LONG).show();
+                        PD.dismiss();
 
                     }else{
 
                         Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                        PD.dismiss();
 
                     }
 
@@ -104,6 +109,8 @@ public class Register extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Throwable t) {
+                    PD.dismiss();
+                    Toast.makeText(getApplicationContext(), t+"", Toast.LENGTH_LONG).show();
 
 
                 }

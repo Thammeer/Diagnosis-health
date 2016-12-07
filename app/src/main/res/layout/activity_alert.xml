@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.app.diagnosis.diagnosis.alert"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,7 +16,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name"
         android:id="@+id/textView9"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:textColor="@android:color/white" />
 
     <EditText
         android:layout_width="match_parent"
@@ -26,7 +29,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp">
 
@@ -37,7 +40,8 @@
             android:id="@+id/date2"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
-            android:onClick="date" />
+            android:onClick="date"
+            android:background="@drawable/selectable_background" />
 
         <Button
             android:layout_width="wrap_content"
@@ -46,8 +50,50 @@
             android:id="@+id/time2"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:onClick="time" />
+            android:onClick="time"
+            android:background="@drawable/selectable_background" />
     </LinearLayout>
+    <RadioGroup
+        android:id="@+id/repeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Once"
+            android:id="@+id/once"
+            android:layout_gravity="center_horizontal"
+            android:checked="true"
+            android:textColor="@android:color/white" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily"
+            android:id="@+id/daily"
+
+            android:textColor="@android:color/white" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Description"
+        android:id="@+id/textView14"
+        android:layout_marginTop="50dp"
+        android:textColor="@android:color/white" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/desc" />
 
     <Button
         android:layout_width="match_parent"
@@ -56,6 +102,7 @@
         android:id="@+id/button11"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:onClick="submit" />
+        android:onClick="submit"
+        android:background="@drawable/selectable_background" />
 
 </LinearLayout>
